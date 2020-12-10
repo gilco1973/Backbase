@@ -7,6 +7,7 @@ import { NewTransferComponent } from './new-transfer/new-transfer.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { RecentTransactionsComponent } from './recent-transactions/recent-transactions.component';
 import { HeaderComponent } from './header/header.component';
+import {CurrencyPipe} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { HeaderComponent } from './header/header.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CurrencyPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
