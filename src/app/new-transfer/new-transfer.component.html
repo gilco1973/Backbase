@@ -1,0 +1,21 @@
+<div class="main">
+  <app-header [text]="'Make a Transfer'"></app-header>
+  <form [formGroup]="transferForm" (submit)="makeATransfer()">
+    <label>
+      FROM ACCOUNT
+      <input type="text" formControlName="fromAccount" required>
+    </label>
+
+    <label>
+      TO ACCOUNT
+      <input type="text" formControlName="toAccount" required>
+    </label>
+
+    <label>
+      AMOUNT
+      <input type="number" formControlName="amount" required>
+    </label>
+
+    <button type="submit" [disabled]="!transferForm.valid">SUBMIT</button>
+  </form>
+</div>

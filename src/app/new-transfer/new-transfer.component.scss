@@ -1,0 +1,46 @@
+.main {
+  display: inline-block;
+  box-shadow: 1px 2px 5px 1px grey;
+}
+
+form {
+  height: 400px;
+  background: #FFFF;
+  width: 400px;
+  padding: 40px;
+  display: inline-grid;
+}
+
+
+label {
+  display: contents;
+  color: #607D8B;
+  font-weight: bold;
+}
+
+input {
+  height: 2em;
+  font-size: 1em;
+  color: gray;
+  opacity: 0.5;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+
+button {
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #cfd8dc;
+}
+
+button:disabled {
+  background-color: #eee;
+  color: #ccc;
+  cursor: auto;
+}

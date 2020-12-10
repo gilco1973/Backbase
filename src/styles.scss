@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  background: url('../assets/background.jpg') no-repeat fixed center center;
+  background-size: cover;
+  font-family: 'Kanit', sans-serif;
+}
+.container {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+}
