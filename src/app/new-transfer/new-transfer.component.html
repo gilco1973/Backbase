@@ -3,7 +3,7 @@
   <form [formGroup]="transferForm" (submit)="makeATransfer()">
     <label>
       FROM ACCOUNT
-      <input type="text" formControlName="fromAccount" required>
+      <input type="text" formControlName="fromAccount" disabled required>
     </label>
 
     <label>
@@ -16,6 +16,6 @@
       <input type="text" formControlName="amount" required>
     </label>
 
-    <button type="submit" [disabled]="!transferForm.valid">SUBMIT</button>
+    <button type="submit" [disabled]="!transferForm.valid || availableBalance <= -500">SUBMIT</button>
   </form>
 </div>

@@ -2,11 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CurrencyPipe} from "@angular/common";
 
-interface ITransactiion {
-  fromAccount: string;
-  toAccount: string;
-  amount: number;
-}
 @Component({
   selector: 'app-new-transfer',
   templateUrl: './new-transfer.component.html',
@@ -14,14 +9,12 @@ interface ITransactiion {
 })
 export class NewTransferComponent implements OnInit {
   transferForm: FormGroup;
-  transaction: ITransactiion;
-
+  availableBalance = 5824.76;
   constructor(private fb: FormBuilder, private currencyPipe: CurrencyPipe) { }
 
   ngOnInit(): void {
-    this.transaction = {amount: 0, fromAccount: '', toAccount: ''};
     this.transferForm = this.fb.group({
-      fromAccount: ['', Validators.required],
+      fromAccount: [`Free Checking(4692) - $` + this.availableBalance, Validators.required],
       toAccount: ['', Validators.required],
       amount: ['', Validators.required]
     });
