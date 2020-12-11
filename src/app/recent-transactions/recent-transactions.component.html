@@ -4,4 +4,7 @@
     <div class="main_grid-header_searchBox"></div>
     <div class="main_grid-header_sorting"></div>
   </div>
+  <app-transaction *ngFor="let transaction of transactions" [transaction]="transaction">
+
+  </app-transaction>
 </div>

@@ -8,20 +8,27 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { RecentTransactionsComponent } from './recent-transactions/recent-transactions.component';
 import { HeaderComponent } from './header/header.component';
 import {CurrencyPipe} from "@angular/common";
+import {TransfersActionsService} from "./store/transfers-actions";
+import {HttpClientModule} from "@angular/common/http";
+import { TransactionComponent } from './transaction/transaction.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewTransferComponent,
     RecentTransactionsComponent,
-    HeaderComponent
+    HeaderComponent,
+    TransactionComponent,
+    TransactionsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [CurrencyPipe],
+  providers: [CurrencyPipe, TransfersActionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
