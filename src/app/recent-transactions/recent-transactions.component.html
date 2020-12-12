@@ -1,8 +1,15 @@
 <div class="main recent">
   <app-header [text]="'Recent Transactions'" [icon]="'assets/icons/briefcase.png'"></app-header>
-  <div class="main_grid-header">
-    <div class="main_grid-header_searchBox"></div>
-    <div class="main_grid-header_sorting"></div>
+  <div class="top">
+    <div class="top_searchBox"></div>
+    <div class="top_sorting">
+      <div><b>Sort By</b></div>
+      <div class="top_sorting_buttons">
+        <app-backbase-radio [text]="'DATE'"></app-backbase-radio>
+        <app-backbase-radio [text]="'BENEFICIARY'"></app-backbase-radio>
+        <app-backbase-radio [text]="'AMOUNT'"></app-backbase-radio>
+      </div>
+    </div>
   </div>
   <app-transaction *ngFor="let transaction of (transactions$ | async).transactions" [transaction]="transaction">
 

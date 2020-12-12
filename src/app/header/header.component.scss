@@ -1,5 +1,5 @@
 .header {
-  height: 50px;
+  height: 80px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -8,8 +8,8 @@
   &_text
   {
     color: #FFFFFF;
-    font-size: 20px;
-    line-height: 50px;
+    font-size: 24px;
+    line-height: 80px;
     font-weight: 300;
     flex: 4;
   }
@@ -17,5 +17,5 @@
 img {
   align-self: start;
   margin: auto;
-  padding-left: 10px;
+  padding-left: 24px;
 }

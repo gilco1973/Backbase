@@ -18,6 +18,7 @@ import { StoreModule } from '@ngrx/store';
 import * as transactionsReducer from "./store/transactions.reducer";
 import {environment} from "../environments/environment";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import { BackbaseRadioComponent } from './backbase-radio/backbase-radio.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {StoreDevtoolsModule} from "@ngrx/store-devtools";
     RecentTransactionsComponent,
     HeaderComponent,
     TransactionComponent,
-    TransactionsComponent
+    TransactionsComponent,
+    BackbaseRadioComponent
   ],
   imports: [
     BrowserModule,
