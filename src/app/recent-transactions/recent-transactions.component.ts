@@ -13,7 +13,8 @@ import {Transaction} from "../store/transactions.reducer";
 })
 export class RecentTransactionsComponent implements OnInit {
   transactions$: Observable<{transactions: Transaction[]}>;
-  briefcaseUrl: 'assets/icons/briefcase.png';
+  sortBy: string;
+  sortOrder: string = 'asc';
 
   constructor(private store: Store<{ transactions: Transaction[] }>, private transfersService: TransfersService, private transactionsSelectors: TransfersSelectors) {
     // @ts-ignore
@@ -27,5 +28,13 @@ export class RecentTransactionsComponent implements OnInit {
                 console.log(data);
                 this.store.dispatch(TransfersActions.setTransactions({transactions: data}));
               })
+  }
+
+  getSortOrder() {
+    return this.sortOrder === 'asc' ? 'desc' : 'asc';
+  }
+
+  sort($event: any) {
+    this.sortBy = $event.sortBy; this.sortOrder = $event.sortOrder
   }
 }

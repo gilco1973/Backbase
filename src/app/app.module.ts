@@ -19,6 +19,7 @@ import * as transactionsReducer from "./store/transactions.reducer";
 import {environment} from "../environments/environment";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import { BackbaseRadioComponent } from './backbase-radio/backbase-radio.component';
+import { SortPipe } from './sort.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { BackbaseRadioComponent } from './backbase-radio/backbase-radio.componen
     HeaderComponent,
     TransactionComponent,
     TransactionsComponent,
-    BackbaseRadioComponent
+    BackbaseRadioComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule,

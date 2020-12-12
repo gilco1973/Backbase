@@ -12,7 +12,7 @@ export const initialState = {
 export interface Transaction {
   _id: string;
   categoryCode: string;
-  dates: { valueDate: string };
+  dates: { valueDate: number };
   merchant: { name: string, accountNumber: string };
   transaction: {
     amountCurrency: {

@@ -5,13 +5,13 @@
     <div class="top_sorting">
       <div><b>Sort By</b></div>
       <div class="top_sorting_buttons">
-        <app-backbase-radio [text]="'DATE'"></app-backbase-radio>
-        <app-backbase-radio [text]="'BENEFICIARY'"></app-backbase-radio>
-        <app-backbase-radio [text]="'AMOUNT'"></app-backbase-radio>
+        <app-backbase-radio [text]="'DATE'" (sort)="sort($event)"></app-backbase-radio>
+        <app-backbase-radio [text]="'BENEFICIARY'" (sort)="sort($event)"></app-backbase-radio>
+        <app-backbase-radio [text]="'AMOUNT'" (sort)="sort($event)"></app-backbase-radio>
       </div>
     </div>
   </div>
-  <app-transaction *ngFor="let transaction of (transactions$ | async).transactions" [transaction]="transaction">
+  <app-transaction *ngFor="let transaction of (transactions$ | async).transactions | sort:sortOrder:sortBy" [transaction]="transaction">
 
   </app-transaction>
 </div>
