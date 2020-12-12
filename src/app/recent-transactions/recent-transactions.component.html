@@ -1,7 +1,9 @@
 <div class="main recent">
   <app-header [text]="'Recent Transactions'" [icon]="'assets/icons/briefcase.png'"></app-header>
   <div class="top">
-    <div class="top_searchBox"></div>
+    <div class="top_searchBox">
+      <input type="text" [(ngModel)]="searchTerm" placeholder="Search By Typing..."/>
+    </div>
     <div class="top_sorting">
       <div><b>Sort By</b></div>
       <div class="top_sorting_buttons">
@@ -11,7 +13,7 @@
       </div>
     </div>
   </div>
-  <app-transaction *ngFor="let transaction of (transactions$ | async).transactions | sort:sortOrder:sortBy" [transaction]="transaction">
+  <app-transaction *ngFor="let transaction of (transactions$ | async).transactions | filter:searchTerm | sort:sortOrder:sortBy" [transaction]="transaction">
 
   </app-transaction>
 </div>

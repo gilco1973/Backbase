@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NewTransferComponent } from './new-transfer/new-transfer.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { RecentTransactionsComponent } from './recent-transactions/recent-transactions.component';
 import { HeaderComponent } from './header/header.component';
 import {CurrencyPipe} from "@angular/common";
@@ -20,6 +20,7 @@ import {environment} from "../environments/environment";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import { BackbaseRadioComponent } from './backbase-radio/backbase-radio.component';
 import { SortPipe } from './sort.pipe';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -30,20 +31,22 @@ import { SortPipe } from './sort.pipe';
     TransactionComponent,
     TransactionsComponent,
     BackbaseRadioComponent,
-    SortPipe
+    SortPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgReduxModule,
     NgReduxRouterModule.forRoot(),
-    StoreModule.forRoot({ transactions: transactionsReducer.transactionsReducer }),
+    StoreModule.forRoot({transactions: transactionsReducer.transactionsReducer}),
     ReactiveFormsModule,
     HttpClientModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
+    FormsModule,
   ],
   providers: [CurrencyPipe, TransfersSelectors],
   bootstrap: [AppComponent]

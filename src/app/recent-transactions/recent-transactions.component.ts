@@ -15,6 +15,7 @@ export class RecentTransactionsComponent implements OnInit {
   transactions$: Observable<{transactions: Transaction[]}>;
   sortBy: string;
   sortOrder: string = 'asc';
+  searchTerm: string;
 
   constructor(private store: Store<{ transactions: Transaction[] }>, private transfersService: TransfersService, private transactionsSelectors: TransfersSelectors) {
     // @ts-ignore

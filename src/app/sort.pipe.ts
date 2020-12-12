@@ -1,10 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import {Transaction} from "./store/transactions.reducer";
 
 @Pipe({
   name: 'sort'
 })
 export class SortPipe implements PipeTransform {
-  transform(value: any[], sortOrder: string = 'asc', sortKey?: string): any {
+  transform(value: Transaction[], sortOrder: string = 'asc', sortKey?: string): any {
     sortOrder = sortOrder && (sortOrder.toLowerCase() as any);
 
     if (!value || (sortOrder !== 'asc' && sortOrder !== 'desc')) return value;
