@@ -1,5 +1,5 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {ITransaction} from "../store/model";
+import {Transaction} from "../store/transactions.reducer";
 
 @Component({
   selector: 'app-transaction',
@@ -8,7 +8,7 @@ import {ITransaction} from "../store/model";
 })
 export class TransactionComponent implements OnInit, OnChanges {
 
-  @Input() transaction: ITransaction
+  @Input() transaction: Transaction
 
   constructor() { }
 

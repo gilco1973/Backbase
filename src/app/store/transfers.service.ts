@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import * as data from '../mock/transactions.json'
+import {Observable, of} from "rxjs";
 import {map} from "rxjs/operators";
+import {Transaction} from "./transactions.reducer";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TransfersService {
 
-  readonly jsonURL = 'transactions.json';
+  constructor() { }
 
-  constructor(private http: HttpClient) { }
-
-  getTransfers() {
-    return this.http.get(this.jsonURL).pipe(map((response:any) => response.json().catch((error:any) => console.log(error))));
-  }
+  getTransactions = (): Observable<Transaction[]> => of((data as any)?.default?.data);
 }

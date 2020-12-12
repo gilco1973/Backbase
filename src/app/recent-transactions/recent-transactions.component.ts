@@ -1,29 +1,30 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {TransfersActionsService} from "../store/transfers-actions";
+import {TransfersActions} from "../store/transfers-actions";
 import {TransfersService} from "../store/transfers.service";
-import * as data from '../mock/transactions.json'
-import {ITransaction, ITransfer} from "../store/model";
+import {Observable} from "rxjs";
+import {TransfersSelectors} from "../store/transfers-selectors";
+import {Store} from "@ngrx/store";
+import {Transaction} from "../store/transactions.reducer";
 
 @Component({
   selector: 'app-recent-transactions',
   templateUrl: './recent-transactions.component.html',
   styleUrls: ['./recent-transactions.component.scss']
 })
-export class RecentTransactionsComponent implements OnInit, AfterViewInit {
-  transactions: ITransaction[];
+export class RecentTransactionsComponent implements OnInit {
+  transactions$: Observable<{transactions: Transaction[]}>;
 
-  constructor(private transfersService: TransfersService, private transactionsActions: TransfersActionsService) {
+  constructor(private store: Store<{ transactions: Transaction[] }>, private transfersService: TransfersService, private transactionsSelectors: TransfersSelectors) {
+    // @ts-ignore
+    this.transactions$ = store.select('transactions');
+    this.transactions$.subscribe((result) => console.log(result));
   }
 
   ngOnInit(): void {
-    // this.transfersService.getTransfers().subscribe((data: any[]) => {
-    this.transactions = (data as any)?.default?.data;
-      console.log(this.transactions);
-    // })
+    this.transfersService.getTransactions().subscribe((data: Transaction[]) => {
+                data.forEach((transaction) => transaction._id = transaction.merchant.accountNumber);
+                console.log(data);
+                this.store.dispatch(TransfersActions.setTransactions({transactions: data}));
+              })
   }
-
-  ngAfterViewInit(): void {
-    // this.transactionsActions.enter();
-  }
-
 }

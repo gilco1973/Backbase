@@ -1,14 +1,30 @@
-import {ITransfer, ITransfersState} from "./model";
+// import {ITransaction, ITransfer, ITransactionsState} from "./model";
 import {map} from "rxjs/operators";
 import {Observable} from "rxjs";
 import {NgRedux} from "@angular-redux/store";
 import {getAll} from "./entity-state-utils";
+import {Injectable} from "@angular/core";
+import {createSelector} from "@ngrx/store";
+import {ITransactionsState, Transaction} from "./transactions.reducer";
 
+@Injectable()
 export class TransfersSelectors {
-  constructor(private store: NgRedux<ITransfersState>) {
+  constructor(private store: NgRedux<ITransactionsState>) {
 
   }
-  getState = (): Observable<ITransfersState> => this.store.select(['transfers']);
+  getState = (): ITransactionsState => this.store.getState();
 
-  getTransfers = (): Observable<ITransfer[]> => getAll(this.getState().pipe(map((state: ITransfersState) => state.transfers)));
+  // getTransactions = (): Observable<ITransaction[]> => getAll(this.getState().transactions);
+
 }
+// export interface FeatureState {
+//   transactions: Transaction[];
+// }
+
+
+
+export const getTransactions = (state: ITransactionsState) => state.transactions;
+// export const selectFeatureCount = createSelector(
+//   selectFeature,
+//   (state: FeatureState) => state.transactions
+// );

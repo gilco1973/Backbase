@@ -20,10 +20,6 @@ export interface EntityStateIds<T> {
   entities?: Dictionary<T>;
 }
 
-export const initialMarkerState = {
-  ids: []
-};
-
 export function addOne<T>(entity: any, state: EntityState<T>, key: string = '_id'): EntityState<T> {
   return {
     ...state,
