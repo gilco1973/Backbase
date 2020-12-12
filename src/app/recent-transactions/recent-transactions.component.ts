@@ -13,6 +13,7 @@ import {Transaction} from "../store/transactions.reducer";
 })
 export class RecentTransactionsComponent implements OnInit {
   transactions$: Observable<{transactions: Transaction[]}>;
+  briefcaseUrl: 'assets/icons/briefcase.png';
 
   constructor(private store: Store<{ transactions: Transaction[] }>, private transfersService: TransfersService, private transactionsSelectors: TransfersSelectors) {
     // @ts-ignore
