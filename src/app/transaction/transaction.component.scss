@@ -5,35 +5,55 @@
   width: 96%;
   border: solid 1px gray;
   margin-left: 25px;
-  &_color{
+  justify-content: space-between;
+
+  &_groups {
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &_color {
     width: 15px;
   }
-  &_image{
+
+  &_image {
     background-size: cover;
     background-repeat: no-repeat;
     width: 80px;
     height: 80px;
     margin: 10px 40px 10px 20px;
   }
-  &_date{
+
+  &_date {
     font-size: 24px;
     line-height: 100px;
     color: gray;
     width: 200px;
     text-align: center;
   }
+
   &_name {
     display: flex;
     flex-direction: column;
     text-align: start;
     font-size: 20px;
     margin: 15px;
-    &_merchant{
+
+    &_merchant {
       font-weight: 500;
     }
-    &_type{
+
+    &_type {
       font-weight: 300;
     }
+  }
 
+  &_amount {
+    font-size: 26px;
+    font-weight: 500;
+    padding: 20px;
+    display: flex;
+    align-items: center;
   }
 }

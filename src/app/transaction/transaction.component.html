@@ -1,9 +1,12 @@
 <div class="transaction">
-  <div class="transaction_color" [ngStyle]="{'background-color': transaction?.categoryCode}"></div>
-  <div class="transaction_date">{{transaction?.dates.valueDate | date:'MMM dd'}}</div>
-  <div class="transaction_image" [ngStyle]="{'background-image': getTransactionImage()}"></div>
+  <div class="transaction_groups">
+    <div class="transaction_color" [ngStyle]="{'background-color': transaction?.categoryCode}"></div>
+    <div class="transaction_date">{{transaction?.dates.valueDate | date:'MMM dd'}}</div>
+    <div class="transaction_image" [ngStyle]="{'background-image': getTransactionImage()}"></div>
     <div class="transaction_name">
       <div class="transaction_name_merchant">{{transaction?.merchant.name}}</div>
       <div class="transaction_name_type">{{transaction?.transaction?.type}}</div>
     </div>
+  </div>
+  <div class="transaction_amount">-{{transaction?.transaction.amountCurrency.amount | currency}}</div>
 </div>
