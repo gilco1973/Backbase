@@ -1,5 +1,15 @@
 .recent {
   background: #FFFFFF;
+  &_container{
+    @media only screen and (max-height: 200px) {
+      height: 100px;
+    }
+    @media only screen and (min-height: 201px) {
+      height: 1000px;
+    }
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 }
 .top{
   display: flex;
@@ -7,10 +17,13 @@
   height: 80px;
   width: 100%;
   &_searchBox{
-    flex: 1
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin: 40px;
   }
   &_sorting{
-    flex: 1;
+    flex: 0.5;
     display: flex;
     flex-direction: row;
     align-items: center;

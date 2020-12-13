@@ -13,7 +13,11 @@
       </div>
     </div>
   </div>
-  <app-transaction *ngFor="let transaction of (transactions$ | async).transactions | filter:searchTerm | sort:sortOrder:sortBy" [transaction]="transaction">
+  <div class="recent_container">
+    <app-transaction
+      *ngFor="let transaction of (transactions$ | async).transactions | filter:searchTerm | sort:sortOrder:sortBy"
+      [transaction]="transaction">
 
-  </app-transaction>
+    </app-transaction>
+  </div>
 </div>

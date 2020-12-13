@@ -12,7 +12,7 @@ import {Transaction} from "../store/transactions.reducer";
   styleUrls: ['./recent-transactions.component.scss']
 })
 export class RecentTransactionsComponent implements OnInit {
-  transactions$: Observable<{transactions: Transaction[]}>;
+  transactions$: Observable<{ transactions: Transaction[] }>;
   sortBy: string;
   sortOrder: string = 'asc';
   searchTerm: string;
@@ -20,15 +20,12 @@ export class RecentTransactionsComponent implements OnInit {
   constructor(private store: Store<{ transactions: Transaction[] }>, private transfersService: TransfersService, private transactionsSelectors: TransfersSelectors) {
     // @ts-ignore
     this.transactions$ = store.select('transactions');
-    this.transactions$.subscribe((result) => console.log(result));
   }
 
   ngOnInit(): void {
     this.transfersService.getTransactions().subscribe((data: Transaction[]) => {
-                data.forEach((transaction) => transaction._id = transaction.merchant.accountNumber);
-                console.log(data);
-                this.store.dispatch(TransfersActions.setTransactions({transactions: data}));
-              })
+      this.store.dispatch(TransfersActions.setTransactions({transactions: data}));
+    })
   }
 
   getSortOrder() {
@@ -36,6 +33,7 @@ export class RecentTransactionsComponent implements OnInit {
   }
 
   sort($event: any) {
-    this.sortBy = $event.sortBy; this.sortOrder = $event.sortOrder
+    this.sortBy = $event.sortBy;
+    this.sortOrder = $event.sortOrder
   }
 }
