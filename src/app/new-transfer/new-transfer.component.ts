@@ -10,7 +10,7 @@ import {CurrencyPipe} from "@angular/common";
 export class NewTransferComponent implements OnInit {
   transferForm: FormGroup;
   availableBalance = 5824.76;
-  arrowsUrl = 'assets/icons/arrows.png';
+  arrowsUrl = 'assets/icons/arrows1.png';
 
   constructor(private fb: FormBuilder, private currencyPipe: CurrencyPipe) { }
 
