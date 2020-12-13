@@ -16,6 +16,6 @@
       <input type="text" formControlName="amount" required>
     </label>
 
-    <button type="submit" [disabled]="!transferForm.valid || availableBalance <= -500">SUBMIT</button>
+    <button type="submit" [disabled]="!transferForm.valid || !amountValid">SUBMIT</button>
   </form>
 </div>
