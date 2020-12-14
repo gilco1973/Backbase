@@ -1,3 +1,5 @@
+@import '../../styles-variables';
+
 .header {
   height: 80px;
   width: 100%;
@@ -5,8 +7,8 @@
   flex-direction: row;
   text-align: center;
   background: #0c8397;
-  &_text
-  {
+
+  &_text {
     color: #FFFFFF;
     font-size: 24px;
     line-height: 80px;
@@ -14,6 +16,7 @@
     flex: 4;
   }
 }
+
 img {
   align-self: start;
   margin: auto;

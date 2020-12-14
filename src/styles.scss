@@ -1,15 +1,42 @@
+@import "styles-variables";
+
 body {
   background: url('../assets/background.jpg') no-repeat fixed center center;
   background-size: cover;
   font-family: 'Kanit', sans-serif;
 }
+
 .container {
-  position: absolute;
-  top: 10%;
-  left: 10%;
-  width: 80%;
   display: flex;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 85px;
+}
+
+.column {
+  flex: 25%;
+  padding: 20px;
+}
+.column2 {
+  flex: 70%;
+  padding: 20px;
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, lg)) {
+  .container {
+    margin: 50px 15px 15px;
+  }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, lg)) {
+  .column {
+    flex: 50%;
+  }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, lg)) {
+  .row {
+    flex-direction: column;
+  }
 }
 
 input {
