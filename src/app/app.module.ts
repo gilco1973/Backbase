@@ -10,7 +10,6 @@ import { HeaderComponent } from './header/header.component';
 import {CurrencyPipe} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
 import { TransactionComponent } from './transaction/transaction.component';
-import { TransactionsComponent } from './transactions/transactions.component';
 import {TransfersSelectors} from "./store/transfers-selectors";
 import {NgReduxModule} from "@angular-redux/store";
 import {NgReduxRouterModule} from "@angular-redux/router";
@@ -29,7 +28,6 @@ import { FilterPipe } from './filter.pipe';
     RecentTransactionsComponent,
     HeaderComponent,
     TransactionComponent,
-    TransactionsComponent,
     BackbaseRadioComponent,
     SortPipe,
     FilterPipe
