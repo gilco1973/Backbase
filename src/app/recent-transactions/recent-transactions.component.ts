@@ -1,8 +1,7 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TransfersActions} from "../store/transfers-actions";
 import {TransfersService} from "../store/transfers.service";
 import {Observable} from "rxjs";
-import {TransfersSelectors} from "../store/transfers-selectors";
 import {Store} from "@ngrx/store";
 import {Transaction} from "../store/transactions.reducer";
 
@@ -17,7 +16,7 @@ export class RecentTransactionsComponent implements OnInit {
   sortOrder: string = 'asc';
   searchTerm: string;
 
-  constructor(private store: Store<{ transactions: Transaction[] }>, private transfersService: TransfersService, private transactionsSelectors: TransfersSelectors) {
+  constructor(private store: Store<{ transactions: Transaction[] }>, private transfersService: TransfersService) {
     // @ts-ignore
     this.transactions$ = store.select('transactions');
   }
